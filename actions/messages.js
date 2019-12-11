@@ -35,8 +35,23 @@ module.exports.chef = class Chef extends ActionHero.Action {
   }
 
   async run ({ params, response }) {
+    let x
+    try {
+      x = await fs.readFile('/home/ubuntu/message.txt', {encoding: 'utf8'})
+      x = '<div>'+x+'</div>'
+      console.log(x)
+    } catch(e) {
+      console.log(e)
+      throw new Error('failed to update ansible')
+    }
     try{
-      exec("sudo chef-client -zr 'recipe[react]'")
+      await fs.writeFile('/home/ubuntu/index.html',x)
+    } catch(e) {
+      console.log(e)
+      throw new Error('failed to write index.html for anisble')
+    }
+    try{
+      exec("sudo chef-client -zr 'recipe[append]'")
     } catch(e) {
       console.log(e)
       throw new Error('failed to update chef')
@@ -55,10 +70,8 @@ module.exports.ansible = class Ansible extends ActionHero.Action {
 
   async run ({ params, response }) {
     let x
-    console.log('ok')
     try {
       x = await fs.readFile('/home/ubuntu/message.txt', {encoding: 'utf8'})
-      console.log(x)
       x = '<div>'+x+'</div>'
       console.log(x)
     } catch(e) {
