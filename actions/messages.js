@@ -72,10 +72,11 @@ module.exports.ansible = class Ansible extends ActionHero.Action {
       throw new Error('failed to write index.html for anisble')
     }
     try {
-      exec('ansible-playbook /home/ubuntu/ansible/playbook-apache.yaml -i /home/ubuntu/ansible/inventory.txt')
+      await exec('ansible-playbook /home/ubuntu/ansible/playbook-apache.yaml -i /home/ubuntu/ansible/inventory.txt')
     } catch(e) {
       console.log(e)
       throw new Error('unable to deploy ansible server')
     }
+    response.status = true
   }
 }
