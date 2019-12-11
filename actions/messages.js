@@ -55,15 +55,18 @@ module.exports.ansible = class Ansible extends ActionHero.Action {
 
   async run ({ params, response }) {
     let x
+    console.log('ok')
     try {
       x = await fs.readFile('/home/ubuntu/message.txt', {encoding: 'utf8'})
+      console.log(x)
       x = '<div>'+x+'</div>'
+      console.log(x)
     } catch(e) {
       console.log(e)
       throw new Error('failed to update ansible')
     }
     try{
-      await fs.writeFile('/home/ubuntu/index.html')
+      await fs.writeFile('/home/ubuntu/index.html',x)
     } catch(e) {
       console.log(e)
       throw new Error('failed to write index.html for anisble')
