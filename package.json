@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "actionhero": "20.0.0",
-    "ws": "latest",
+    "dd-trace": "^0.16.3",
     "ioredis": "latest",
-    "winston": "latest"
+    "nodemon": "^2.0.2",
+    "winston": "latest",
+    "ws": "latest"
   },
   "devDependencies": {
     "jest": "latest",
