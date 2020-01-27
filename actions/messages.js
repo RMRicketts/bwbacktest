@@ -3,6 +3,7 @@ const { Action, api } = require('actionhero');
 const fs = require('fs').promises;
 const {exec} = require('child_process');
 
+/*
 module.exports.act = class DoAction extends Action {
   constructor() {
     super();
@@ -23,22 +24,6 @@ module.exports.act = class DoAction extends Action {
       throw new Error('failed to write file');
     }
     response.status = true;
-  }
-};
-
-module.exports.shutThisShitDown = class shutThisShitDown extends Action {
-  constructor() {
-    super();
-    this.name = 'shutThisShitDown';
-    this.description = 'I will shut this shit down';
-    this.inputs = {};
-  }
-
-  async run({params, response}) {
-    console.log(api.scope.active());
-    console.log("I'm shutting it down");
-    //exec('pkill node');
-    response.sucess = true;
   }
 };
 
@@ -111,3 +96,4 @@ module.exports.ansible = class Ansible extends Action {
     response.status = true;
   }
 };
+*/
