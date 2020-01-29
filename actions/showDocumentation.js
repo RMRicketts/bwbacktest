@@ -1,6 +1,7 @@
-'use strict'
-const ActionHero = require('actionhero')
+'use strict';
+const ActionHero = require('actionhero');
 
+/*
 module.exports = class ShowDocumentation extends ActionHero.Action {
   constructor () {
     super()
@@ -94,3 +95,4 @@ module.exports = class ShowDocumentation extends ActionHero.Action {
     response.documentation = documentation.documentation
   }
 }
+*/

@@ -1,5 +1,5 @@
 'use strict';
-const { Action, api } = require('actionhero');
+const {Action, api} = require('actionhero');
 const fs = require('fs').promises;
 const {exec} = require('child_process');
 
@@ -18,12 +18,12 @@ module.exports.act = class DoAction extends Action {
 
   async run({params, response}) {
     try {
-      fs.writeFile('/home/ubuntu/message.txt', params.msg);
+      fs.writeFile('/home/ec2-user/message.txt', params.msg);
     } catch (e) {
       console.log(e);
       throw new Error('failed to write file');
     }
-    response.status = true;
+    response.success = true;
   }
 };
 
